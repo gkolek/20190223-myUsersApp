@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route } from 'react-router-dom'
+
 import './App.css';
+import Form from './Form'
+
+import BeersContainer from './BeersContainer'
+// import SimpleTable from './SimpleTable'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-        </header>
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" component={BeersContainer} />
+            <Route path="/create" component={Form} />
+            <Route path="/update/:beerId" component={Form} />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
